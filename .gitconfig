@@ -1,0 +1,5 @@
+[user]
+	email = aklos@outlook.de
+	name = Andreas Klos
+[credential]
+	helper = "!f() { /root/.vscode-server/bin/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/node /tmp/vscode-remote-containers-d52a2ef0-d575-4698-83f1-312c55b08ca9.js git-credential-helper $*; }; f"

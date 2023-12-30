@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: filterer
+  namespace: klos
+  labels:
+    app: filterer
+spec:
+  containers:
+  - name: filterer
+    image: skynet1010/filter_rasters_by_vector:v0.0.4
+    imagePullPolicy: IfNotPresent
+    command: ['sh', '-c', 'while true; do sleep 5; done;'] #"python3 main.py -c 0 -id 2 -d ./data/repaired_data"] #
+    env:
+    - name: ftp_proxy
+      value: http://10.0.0.10:3128
+    - name: http_proxy
+      value: http://10.0.0.10:3128
+    - name: https_proxy
+      value: http://10.0.0.10:3128
+    resources:
+      limits:
+        cpu: 12000m
+        memory: 10000Mi
+      requests:
+        cpu: 12000m
+        memory: 5000Mi
+    ports:
+    - containerPort:  80
+      name:  http
+    volumeMounts:
+    - name: data-nfs
+      mountPath: "/app/data"
+  volumes:
+  - name: data-nfs
+    persistentVolumeClaim:
+      claimName: klos-interpolation-data-pvc-20220119
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

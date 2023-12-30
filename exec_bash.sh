@@ -1,0 +1,1 @@
+python3 main.py -d data/bing_germany/tiffs/

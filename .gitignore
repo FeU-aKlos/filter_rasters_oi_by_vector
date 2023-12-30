@@ -1,6 +1,18 @@
 #custom stuff
 *.jp2
 *.tif
+.gnupg
+.ssh
+.vscode-server
+.bash_history
+.python_history
+*.cpg
+*.dbf
+*.prj
+*.qmd
+*.shp
+*.shx
+*.aux.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
