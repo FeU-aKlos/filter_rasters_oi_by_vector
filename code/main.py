@@ -54,9 +54,13 @@ def main():
         x = float(".".join(fn_split[2:]))
         
         # print(x, minx, maxx)
-        
-        x_ = 1/111320 * 1000
-        y_ = 1/(cos(radians(y))*40075000*pi/180)*735
+        avg_dist_between_lat = 111320
+        half_x_width = 1000
+        x_ = 1/ avg_dist_between_lat* half_x_width
+        earth_circumference = 40075000
+        half_circle_in_degrees = 180
+        half_y_height = 735
+        y_ = 1/(cos(radians(y))*earth_circumference*pi/half_circle_in_degrees)*half_y_height
         # print(x_, y_ )
         if x<minx-x_  or x>maxx+x_:
             return False
